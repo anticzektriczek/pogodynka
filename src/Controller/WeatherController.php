@@ -10,6 +10,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class WeatherController extends AbstractController
 {
+
+
     #[Route('/weather/{city}/{countryCode?}', name: 'app_weather')]
 
 

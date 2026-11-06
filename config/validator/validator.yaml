@@ -1,0 +1,51 @@
+App\Entity\Location:
+    properties:
+        latitude:
+            - Range:
+                  min: -90
+                  max: 90
+                  notInRangeMessage: 'Latitude must be between -90 and 90.'
+                  groups: [create, Default]
+
+        longitude:
+            - Range:
+                  min: -180
+                  max: 180
+                  notInRangeMessage: 'Longitude must be between -180 and 180.'
+                  groups: [create, Default]
+
+App\Entity\Measurement:
+    properties:
+        celsius:
+            - NotBlank:
+                  message: 'Temperature cannot be empty.'
+                  groups: [create, Default]
+            - Type:
+                  type: numeric
+                  message: 'Temperature must be a number.'
+                  groups: [create, Default]
+            - Range:
+                  min: -100
+                  max: 100
+                  notInRangeMessage: 'Temperature must be between -100 and 100°C.'
+                  groups: [create, Default]
+
+        Cloudiness:
+            - NotBlank:
+                  message: 'Cloudiness cannot be empty.'
+                  groups: [create, Default]
+            - Range:
+                  min: 0
+                  max: 100
+                  notInRangeMessage: 'Cloudiness must be between 0 and 100%.'
+                  groups: [create, Default]
+
+        Humidity:
+            - NotBlank:
+                  message: 'Humidity cannot be empty.'
+                  groups: [create, Default]
+            - Range:
+                  min: 0
+                  max: 100
+                  notInRangeMessage: 'Humidity must be between 0 and 100%.'
+                  groups: [create, Default]
